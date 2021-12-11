@@ -179,13 +179,13 @@ h2 {
     z-index: -1;
 }
 
-.checkbox+label {
+.checkbox + label {
     display: inline-flex;
     align-items: center;
     user-select: none;
 }
 
-.checkbox+label::before {
+.checkbox + label::before {
     content: '';
     display: inline-block;
     width: 15px;
@@ -199,7 +199,7 @@ h2 {
     cursor: pointer;
 }
 
-.checkbox:checked+label::before {
+.checkbox:checked + label::before {
     border-color: #FF9846;
     background-color: #FF9846;
     border-radius: 50%;
@@ -214,6 +214,10 @@ h2 {
 
 .change-input {
     width: 152px;
+}
+
+.basic-input.change-input.sum {
+    cursor: default;
 }
 
 .basic-input.comment-input {
@@ -276,7 +280,6 @@ h2 {
     font-weight: 700;
     font-size: 18px;
 }
-
 
 .basic-input.promo-input {
     width: 360px;

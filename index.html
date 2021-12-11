@@ -55,9 +55,9 @@
                 </div>
                 
                 <div class="change">
-                    <input type="checkbox" class="checkbox" name="change" id="change">
+                    <input type="checkbox" class="checkbox" name="change" id="change" onclick="var input = document.getElementById('sum'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />
                     <label for="change" class="change-text">Подготовить сдачу с</label>
-                    <input type="text" placeholder="Сумма" class="basic-input change-input">
+                    <input type="text" id="sum" placeholder="Сумма" class="basic-input change-input sum" disabled="disabled"/>
                 </div>
                 
                 <input type="text" placeholder="Комментарий к заказу" class="basic-input comment-input">
@@ -88,7 +88,6 @@
                     <input class="radio-base" type="radio" name="delivery" id="pickup">
                     <label class="basic-input-button radio-input right" for="pickup">Самовывоз</label>
                 </div>
-                
 
                 <div class="adress">
                     <input type="text" placeholder="Улица" class="basic-input street-input">
