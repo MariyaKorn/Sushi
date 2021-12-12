@@ -230,7 +230,7 @@ h2 {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    margin-bottom: 10px;
+    margin-bottom: 10px ;
 }
 
 .order h3 {
@@ -240,45 +240,52 @@ h2 {
     margin-right: 57px;
 }
 
-.plus {
-    width: 20px;
+.order .plus {
     height: 20px;
+    width: 20px;
+    padding: 0;
     border-radius: 50%;
+    border: none;
     background: #F46D40;
-    margin-right: 10px;
     cursor: pointer;
-    margin-left: 8px;
+    outline: 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2), 0 4px 6px rgba(0,0,0,0.2);
 }
 
-.plus::before {
-    position: absolute;
-    content: '+';
-    height:20px;
-    width:20px;
-    font-size: 20px;
-    color: #fff;
+.order .minus, .order .quantity {
+    height: 20px;
+    width: 20px;
+    padding: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.order .quantity {
+    width: 20px;
     text-align: center;
+    font-size: 15px;
+    color: #000;
     font-family: 'Raleway', sans-serif;
-    font-weight: 500;
-    display:flex;
-    flex-direction:row;
-    align-items:center;
-    justify-content:center;
+    margin-right: 5px;
+    outline: none;
+}
+
+.order .minus svg {
+    stroke: #000;
+    stroke-width: 4;
+    margin: 4px;
+}
+
+.order .plus svg {
+    stroke: #FFF;
+    stroke-width: 4;
+    margin: 4px;
+} 
+
+.order .plus:hover svg, .order .minus:hover svg {
     transform: scale(1.5);
-}
-
-.minus {
-    border-bottom: 2px solid #000;
-    border-radius: 5px;
-    width: 10px;
-    margin-right: 9px;
-    cursor: pointer;
-}
-
-.order h4 {
-    font-family: 'Raleway', sans-serif;
-    font-weight: 700;
-    font-size: 18px;
+    transition: 0.5s ease-in-out;
 }
 
 .basic-input.promo-input {

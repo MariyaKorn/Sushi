@@ -4,9 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">	     
     <title>Document</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="./jquery-3.6.0.min.js"></script>
 </head>
 
 <body>
@@ -64,16 +65,24 @@
 
                 <div class="order">
                     <h3>Палочки + соусник обычные</h3>
-                        <div class="minus"></div>
-                        <h4>10</h4>
-                        <div class="plus"></div>
+                    <button class="minus" type="button">
+                        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                    </button>
+                    <input type="text" value="10" size="2" class="quantity" data-max-count="20"/>
+                    <button class="plus" type="button">
+                        <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                    </button>
                 </div>
 
                 <div class="order">
                     <h3>Палочки + соусник обычные</h3>
-                        <div class="minus"></div>
-                        <h4>10</h4>
-                        <div class="plus"></div>
+                        <button class="minus" type="button">
+                            <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                        </button>
+                        <input type="text" value="10" size="2" class="quantity" data-max-count="20"/>
+                        <button class="plus" type="button">
+                            <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                        </button>
                 </div>
 
                 <input type="text" placeholder="Введите промокод" class="basic-input promo-input">
@@ -118,6 +127,35 @@
         </form>
 
     </section>
+
+    <script>
+        // Убавляем кол-во по клику
+        $('.order .minus').click(function() {
+        let $input = $(this).parent().find('.quantity');
+        let count = parseInt($input.val()) - 1;
+        count = count < 1 ? 1 : count;
+        $input.val(count);
+    });
+        // Прибавляем кол-во по клику
+        $('.order .plus').click(function() {
+        let $input = $(this).parent().find('.quantity');
+        let count = parseInt($input.val()) + 1;
+        count = count > parseInt($input.data('max-count')) ? parseInt($input.data('max-count')) : count;
+        $input.val(parseInt(count));
+    }); 
+        // Убираем все лишнее и невозможное при изменении поля
+        $('.order .quantity').bind("change keyup input click", function() {
+            if (this.value.match(/[^0-9]/g)) {
+            this.value = this.value.replace(/[^0-9]/g, '');
+        }
+        if (this.value == "") {
+            this.value = 1;
+        }
+        if (this.value > parseInt($(this).data('max-count'))) {
+            this.value = parseInt($(this).data('max-count'));
+        }    
+    }); 
+    </script>
 
 </body>
 </html>
